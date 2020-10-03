@@ -15,6 +15,7 @@ The results we're trying to achieve through this algorithm is creating real-time
 The best outcome for this project would be an algorithm that correctly predicts what action to take regarding a particular stock looking at real-time trading data. It would be really cool to be able to apply the same techniques that we used on our project for more trading strategies. 
 
 ## References
-
-
+1. Chang, P.-C., Liu, C.-H., Lin, J.-L., Fan, C.-Y., & Ng, C. S. P. (2009). A neural network with a case based dynamic window for stock trading prediction. Expert Systems with Applications, 36(3), 6889–6898. https://doi.org/10.1016/j.eswa.2008.08.077
+2. Choudhury, S., Ghosh, S., Bhattacharya, A., Fernandes, K. J., & Tiwari, M. K. (2014). A real time clustering and SVM based price-volatility prediction for optimal trading strategy. Neurocomputing, 131, 419–426. https://doi.org/10.1016/j.neucom.2013.10.002
+3. KAASTRA, I., & Boyd, M. S. (1995). FORECASTING FUTURES TRADING VOLUME USING NEURAL NETWORKS: INTRODUCTION. The Journal of Futures Markets (1986-1998), 15(18), 953. https://go.openathens.net/redirector/gatech.edu?url=https://search.proquest.com/docview/225467154?accountid=11107
 
