@@ -30,6 +30,7 @@ Through k-means clustering we were able to group the data points by our five key
 
 ## Results
 The results we're trying to achieve through this algorithm is creating real-time predictive algorithms that can look at data from block trades and hidden trades and can correctly predict whether it is a good idea to buy or sell a particular stock (or do nothing).
+
 **Unsupervised Learning.**
 When looking at histograms for frequency vs time we noted most of the trades happened right before market close at 5PM, illustrating it may be worth collecting closing price data 7 to 14 days before the trade occurred and 7 to 14 days after for each stock because it may take time for the block trade to impact the overall value of the stock. Then feature analysis through pairwise plots and the heat map helped us realize the low correlation through many of our features and again highlight the potential need to include more features in future data sets. Finally, the K-means analysis helped us narrow down outliers by identifying low impact clusters with little significance and see potential groupings in future analysis.  
 
