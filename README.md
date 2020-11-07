@@ -15,19 +15,15 @@ Benzinga Pro provided us with the number of shares sold, time of sale, and price
 
  - Calculated percent difference between unit price and closing price of each remaining stock 
 To help understand the raw data we created histograms and/or box plots for each individual feature. Since our stock prices have a lot of variance in terms of magnitude, the price difference was normalized between -1 and 1. Through these graphs we observed that the time a significant amount of block trades occur is around 3pm to 4pm. While price difference had the largest grouping of data from 0.00 - 0.50. 
-![time](https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.44%20PM.png)
-![price diff] (https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.34%20PM.png)
+<img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.44%20PM.png" alt="time" width="450"/><img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.34%20PM.png" alt="price diff" width="450"/>
 
 **Feature Analysis.**
 To further our understanding of each feature and its relationship with the others we created pairwise plots between combinations of two features at a time which are more comprehensive raw data visual representations of the heatmap below.  Most of our data is not very linearly correlated outside of unit price and closing price. Based on the pairwise plots and heat map, the largest feature correlation we see—outside of feature vs itself and unit price vs close price—is between the normalized difference values and shares sold with a -.18 correlation which is not notably strong.  
-![heatmap] (https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.25%20PM.png)
-![pairwise plots] (https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.55.26%20PM.png)
+<img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.25%20PM.png" alt="heatmap" width="450"/><img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.55.26%20PM.png" alt="pairwise" width="450"/>
 
 **K-Means Clustering.**
 Through k-means clustering we were able to group the data points by our five key features. The largest cluster (#1) put the overall average for each feature including trade time around 12PM with 558,187 shares sold at a unit price of 15.82 and average difference of .01. It is interesting to note that in all other cluster groups the average difference is negative and average number of shares is above at least 1 million which is double our bar for what constitutes a block trade. Our fifth cluster is the only grouping with an average close and unit price of a fraction of a cent which is a significant outlier group compared to the other clusters in terms of price and low impact on the market overall.  
-![kmeans visualization] (https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.34%20PM.png)
-![kmeans clusters] (https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.45%20PM.png)
-
+<img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.34%20PM.png" alt="kmeans vis" width="325"/><img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.45%20PM.png" alt="kmeans clstr" width="575"/>
 
 ## Results
 The results we're trying to achieve through this algorithm is creating real-time predictive algorithms that can look at data from block trades and hidden trades and can correctly predict whether it is a good idea to buy or sell a particular stock (or do nothing).
