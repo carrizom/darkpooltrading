@@ -14,7 +14,8 @@ Benzinga Pro provided us with the number of shares sold, time of sale, and price
 - Removed trades/data points that did not have closing prices available for that day 
 
  - Calculated percent difference between unit price and closing price of each remaining stock 
-To help understand the raw data we created histograms and/or box plots for each individual feature. Since our stock prices have a lot of variance in terms of magnitude, the price difference was normalized between -1 and 1. Through these graphs we observed that the time a significant amount of block trades occur is around 3pm to 4pm. While price difference had the largest grouping of data from 0.00 - 0.50. 
+To help understand the raw data we created histograms and/or box plots for each individual feature. Since our stock prices have a lot of variance in terms of magnitude, the price difference was normalized between -1 and 1. Through these graphs we observed that the time a significant amount of block trades occur is around 3pm to 4pm. While price difference had the largest grouping of data from 0.00 - 0.50. There was a huge range of number of shares sold, but we realized that most of the transactions were concentrated in the 0-500k range. Likewise in the unit price, were most of the prices were between $0-$50. We think by getting rid of some of these outliers, we might be able to get a way better model in the supervised learning phase.
+
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.44%20PM.png" alt="time" width="450"/><img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%204.52.34%20PM.png" alt="price diff" width="450"/>
 
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-06%20at%207.35.27%20PM.png" alt="unit price" width="450"/><img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-06%20at%207.27.36%20PM.png" alt="size of order" width="450"/>
@@ -36,7 +37,7 @@ When looking at histograms for frequency vs time we noted most of the trades hap
 The best outcome for this project would be an algorithm that correctly predicts what action to take regarding a particular stock looking at real-time trading data. It would be really cool to be able to apply the same techniques that we used on our project for more trading strategies. 
 
 **Unsupervised Learning.**
-For further analysis, it may be helpful to take out data points where block trades have a unit price under $0.30 per share because we realized in our clustering that this are outliers and by eliminating them we could get a more accurate model. Additionally, including other related features may be helpful in interpreting the data we do have given the low correlations between the features that we are currently tracking. Although, supervised learning is not necessarily improved by correlated features and would provide weights to each feature which may help give us clearer results.  
+For further analysis, it may be helpful to take out data points where block trades have a unit price under $0.30 per share because we realized in our clustering that this are outliers and by eliminating them we could get a more accurate model. Additionally, including other related features may be helpful in interpreting the data we do have given the low correlations between the features that we are currently tracking. 
 
 ## References
 1. Chang, P.-C., Liu, C.-H., Lin, J.-L., Fan, C.-Y., & Ng, C. S. P. (2009). A neural network with a case based dynamic window for stock trading prediction. Expert Systems with Applications, 36(3), 6889–6898. https://doi.org/10.1016/j.eswa.2008.08.077
