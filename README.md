@@ -26,21 +26,23 @@ To further our understanding of each feature and its relationship with the other
 
 **K-Means Clustering.**
 Through k-means clustering we were able to group the data points by our five key features. Initially, we created six clusters based on number of shares traded, unit price per share, close price, and time of trade, but we found time to be the most influential in our results. In order to reduce the influence of time over the clustering we ran k-means again with the additional feature of difference between unit price and close price. The largest cluster (#1) put the overall average for each feature including trade time around 12PM with 558,187 shares sold at a unit price of 15.82 and average difference of .01. It is interesting to note that in all other cluster groups the average difference is negative and average number of shares is above at least 1 million which is double our bar for what constitutes a block trade. Our fifth cluster is the only grouping with an average close and unit price of a fraction of a cent which is a significant outlier group compared to the other clusters in terms of price and low impact on the market overall. Given the consistency in our data, real-time analysis is a feasible option that could potentially better adapt given the changing market, but the data set would continue to grow forever, impacting memory use and computing time. Therefore a “forgetting” method would have to be implemented where new data is added and older data is dropped before updating centroids. 
-
+<p align="center">
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.34%20PM.png" alt="kmeans vis" width="325"/>
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/Screen%20Shot%202020-11-04%20at%205.03.45%20PM.png" alt="kmeans clstr" width="575"/>
-
+</p>
 **Linear Regression.**
 To analyze the high correlation between unit price and close price we began with simple Linear Regression modeling. Our final linear regression model was trained with 70% of the dataset randomly selected and tested on the remaining 30%. We wanted to train with as much of the data as possible, but found that the model tended to overfit if we went over 70%.  
+<p align="center">
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/linreg1.png" alt="Linear Regression" width="325"/>
-<img src="https://github.com/carrizom/darkpooltrading/blob/master/lingreg2.png" alt="Linear Regression Plot" width="575"/>
-
+<img src="https://github.com/carrizom/darkpooltrading/blob/master/lingreg2.png" alt="Linear Regression Plot" width="325"/>
+</p>
 In the end, despite the high R squared correlation value of .94 our data was not fitting well in the linear model. We attempted to normalize the data to improve the fit which reduced the R squared correlation value to .76, but still found the fit to be lacking as you can see in our plots. 
 
 **Neural Net.**
 Given the lack of a linear trend we decided to use a Neural Net. The Neural Net was given an input of 2 nodes based on 2 key features price and percent change of price before the trade occurred. The price was normalized between -1 and 1 on trades above 30 cents per unit. The first hidden layer of the net has 15 hidden units and the final layer has a single output node based on if the stock price after the block trade occurred increased (1) or decreased (0). We trained the neural net on 70% of our dataset similar to linear regression and tested it on 30%. The loss values of the gradient descent method decreased at every cycle indicating the training proceeded well and we found the training accuracy to be 66.11% while testing accuracy was at 56.80%. Overall, our testing accuracy was 6.8% over the baseline performance of 50% to decide whether a stock following a given block trade would trend positive or negative for the next seven days. This is better than baseline and is considered good based on industry standards which are around 55% for a profitable outcome, but optimally our algorithm accuracy would be around 60%. Potential ways to increase the success of our algorithm would be to consider short term and long-term stock prices and adding a layer to the neural net that considers the specific type of stock. For example, many times within our data multiple block trades would occur within the same stock in the same day or over multiple days. Our current algorithm considers each trade individual. If we were to associate block trades of the same stock or similar stocks we may be able to increase the accuracy of our predictions.  
+<p align="center">
 <img src="https://github.com/carrizom/darkpooltrading/blob/master/lossrate.png" alt="Neural Net Loss Rate" width="325"/>
-
+</p>
 
 ## Results
 The results we're trying to achieve through this algorithm is creating real-time predictive algorithms that can look at data from block trades and hidden trades and can correctly predict whether it is a good idea to buy or sell a particular stock (or do nothing).
