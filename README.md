@@ -50,11 +50,17 @@ The results we're trying to achieve through this algorithm is creating real-time
 **Unsupervised Learning.**
 When looking at histograms for frequency vs time we noted most of the trades happened right before market close at 5PM, illustrating it may be worth collecting closing price data 7 to 14 days before the trade occurred and 7 to 14 days after for each stock because it may take time for the block trade to impact the overall value of the stock. Then feature analysis through pairwise plots and the heat map helped us realize the low correlation through many of our features and again highlight the potential need to include more features in future data sets. Finally, the K-means analysis helped us narrow down outliers by identifying low impact clusters with little significance and see potential groupings in future analysis.  
 
+**Supervised Learning.**
+After doing our data processing, we decided to try two approaches: linear regression and neural networks. While our linear regression gave us a better performance (around 94%) we decided to proceed neural networks because our data did not fit linear tendencies. The neural network approach gave us an accuracy of 66.11% on the training data set and an accuracy of 56.80% on the testing set. While this numbers may seem small, these are pretty standard for the industry.
+
 ## Discussion
 The best outcome for this project would be an algorithm that correctly predicts what action to take regarding a particular stock looking at real-time trading data. It would be really cool to be able to apply the same techniques that we used on our project for more trading strategies. 
 
 **Unsupervised Learning.**
 For further analysis, it may be helpful to take out data points where block trades have a unit price under $0.30 per share because we realized in our clustering that this are outliers and by eliminating them we could get a more accurate model. Additionally, including other related features may be helpful in interpreting the data we do have given the low correlations between the features that we are currently tracking. 
+
+**Supervised Learning.**
+In the end our neural network was based on the normalized order size and percentage change of the price from the day before to the day of the transaction. For further analysis, we think including whether a transaction was a long or short and calculating the projected gain or loss of the transaction might be really helpful and relatively easy to implement.
 
 ## References
 1. Chang, P.-C., Liu, C.-H., Lin, J.-L., Fan, C.-Y., & Ng, C. S. P. (2009). A neural network with a case based dynamic window for stock trading prediction. Expert Systems with Applications, 36(3), 6889–6898. https://doi.org/10.1016/j.eswa.2008.08.077
